@@ -1,15 +1,13 @@
 package Demo;
 
-import java.util.Scanner;
-
 public class Demo {
-	public static void CheckEvenNumber(int num) {
-		if (num % 2 == 0) {
-			System.out.println("the num " + num + " is even");
-		} else {
-			System.out.println("the num " + num + " is not even");
-		}
-	}
+//	public static void CheckEvenNumber(int num) {
+//		if (num % 2 == 0) {
+//			System.out.println("the num " + num + " is even");
+//		} else {
+//			System.out.println("the num " + num + " is not even");
+//		}
+//	}
 
 //	public static void CalculateEvenOddNumbers(int num) {
 //
@@ -299,11 +297,11 @@ public class Demo {
 //			Printpyramid();
 //			PrintDiamond();
 
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter a number");
-		int num = sc.nextInt();
-
-		CheckEvenNumber(num);
-		sc.close();
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Enter a number");
+//		int num = sc.nextInt();
+//
+//		CheckEvenNumber(num);
+//		sc.close();
 	}
 }
