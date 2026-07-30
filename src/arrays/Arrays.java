@@ -1,25 +1,136 @@
 package arrays;
 
 public class Arrays {
-
-	public static boolean checkSortedRotated(int[] arr) {
-//		int []arr= {3,4,5,1,2};
-		int firstEle = arr[0];
-		int count = 0;
-		if (firstEle < arr[arr.length - 1]) {
-			count++;
-		}
-		for (int i = 0; i < arr.length - 1; i++) {
-			if (arr[i] > arr[i + 1]) {
-				count++;
+	public static void findCommonElements2(int[] arr1, int[] arr2) {
+		boolean istrue = false;
+		for (int i = 0; i < arr1.length; i++) {
+			istrue = false;
+			for (int j = 0; j < arr2.length; j++) {
+				if (arr1[i] == arr2[j]) {
+					istrue = true;
+				}
+			}
+			if (istrue) {
+				System.out.println(arr1[i]);
 			}
 		}
-
-		if (count > 1) {
-			return false;
-		}
-		return true;
 	}
+
+	public static void findCommonElements(int[] arr1, int[] arr2) {
+//		int[] arr1 = { 1, 2,2, 3, 4, 5, 6, 7 };
+//		int[] arr2 = { 1, 2, 2, 8, 9, 4, 6 };
+		for (int i = 0; i < arr1.length; i++) {
+			for (int j = 0; j < arr2.length; j++) {
+				if (arr1[i] == arr2[j]) {
+					System.out.println(arr1[i]);
+				}
+			}
+		}
+	}
+
+	public static void rotateByLeftKPosition(int[] arr, int k) {
+//int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
+//		int[] arr = { 7,6,5,4,3,2,1 };
+		k = k % arr.length;
+		reverse(arr, 0, arr.length - 1);
+		reverse(arr, arr.length - k, arr.length - 1);
+		reverse(arr, 0, arr.length - k - 1);
+	}
+
+	public static void reverse(int[] arr, int i, int j) {
+		while (i < j) {
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+			i++;
+			j--;
+		}
+	}
+
+//	public static void rotateByKPosition(int[] arr, int k) {
+////		int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
+//		k = k % arr.length;
+//		k = arr.length - k;
+//		reverse(arr, 0, arr.length - 1);
+//		reverse(arr, 0, k - 1);
+//		reverse(arr, k, arr.length - 1);
+//	}
+//
+//	public static void reverse(int[] arr, int i, int j) {
+//		while (i < j) {
+//			int temp = arr[i];
+//			arr[i] = arr[j];
+//			arr[j] = temp;
+//			i++;
+//			j--;
+//		}
+//	}
+
+//	public static void rotateByKPosition(int[] arr, int k) {
+////		int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
+//		int nums[] = new int[arr.length];
+//		int index = 0;
+//		int i = Math.abs(arr.length - k);
+//		System.out.println(i);
+//		while (i < arr.length) {
+//			if (index == arr.length) {
+//				break;
+//			}
+//			nums[index] = arr[i];
+//			index++;
+//			i++;
+//			if (i == arr.length) {
+//				i = 0;
+//			}
+//		}
+//
+//		for (int n : nums) {
+//			System.out.print(n + ",");
+//		}
+//	}
+
+//	public static void mergeTwoArrays(int[] nums1, int m, int[] nums2, int n) {
+//		int index = m + n - 1;
+//		int i = m - 1;
+//		int j = n - 1;
+//
+//		while (i >= 0 && j >= 0) {
+//			if (nums2[j] > nums1[i]) {
+//				nums1[index] = nums2[j];
+//				index--;
+//				j--;
+//			} else {
+//				nums1[index] = nums1[i];
+//				index--;
+//				i--;
+//			}
+//		}
+//
+//		while (j >= 0) {
+//			nums1[index] = nums2[j];
+//			index--;
+//			j--;
+//		}
+//	}
+
+//	public static boolean checkSortedRotated(int[] arr) {
+////		int []arr= {3,4,5,1,2};
+//		int firstEle = arr[0];
+//		int count = 0;
+//		if (firstEle < arr[arr.length - 1]) {
+//			count++;
+//		}
+//		for (int i = 0; i < arr.length - 1; i++) {
+//			if (arr[i] > arr[i + 1]) {
+//				count++;
+//			}
+//		}
+//
+//		if (count > 1) {
+//			return false;
+//		}
+//		return true;
+//	}
 
 //	public static boolean checkIsSorted(int[] arr) {
 //		for (int i = 0; i < arr.length - 1; i++) {
@@ -421,15 +532,31 @@ public class Arrays {
 //		} else {
 //			System.out.println("the array is not sorted");
 //		}
+//
+//		int[] arr = { 2, 2, 2, 2 };
+//		boolean isSortedRoatated = checkSortedRotated(arr);
+//
+//		if (isSortedRoatated) {
+//			System.out.println("the array is sorted and rotated");
+//		} else {
+//			System.out.println("the array is not sorted");
+//		}
+//
+//		int[] arr1 = { 1,2,3};
+//		int[] arr2 = { 2, 5, 6 };
+//
+//		System.out.println(arr1.length);
+//		mergeTwoArrays(arr1,arr1.length,arr2,arr2.length);
 
-		int[] arr = { 2, 2, 2, 2 };
-		boolean isSortedRoatated = checkSortedRotated(arr);
+//		int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
+//		int k = 3;
+//		rotateByLeftKPosition(arr, k);
+//		System.out.println(java.util.Arrays.toString(arr));
 
-		if (isSortedRoatated) {
-			System.out.println("the array is sorted and rotated");
-		} else {
-			System.out.println("the array is not sorted");
-		}
+		int[] arr1 = { 1, 2, 3, 4, 5, 5, 6, 7 };
+		int[] arr2 = { 8, 2, 2, 5, 6, 6 };
+
+		findCommonElements2(arr1, arr2);
 
 	}
 }
